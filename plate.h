@@ -6,7 +6,7 @@
 //defines and typdefs
 #define true 1
 #define false 0
-typedef struct node* NODE;
+typedef struct node* Node;
 
 //struct node
 struct node {
@@ -23,7 +23,7 @@ int height(Node root);
 int balanced(Node root);
 	//returns 1 if tree is balanced
 	//returns 0 if tree is unbalanced
-int add(Node root, char *plate, char *first, char *lats);
+Node add(Node root, char *plate, char *first, char *lats);
 	//adds a new node to the current tree
 	//returns the location of the root node
 int search(Node root, char *plate, char *first, char *last);
