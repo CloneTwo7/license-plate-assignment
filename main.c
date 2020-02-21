@@ -7,5 +7,5 @@ int main() {
 	root = add(root, "hello", "donald", "glover");
 	root = add(root, "goodbye", "John", "Smith");
 	root = add(root, "thisisplate", "Jackie","Brown");
-	printf("%s\n", root -> plate);
+	
 }

@@ -8,15 +8,14 @@ Node add(Node root, char *plate, char *first, char *last) {
 		root -> last = last;
 		root -> left = NULL;
 		root -> right = NULL;
-		return;
 	}
-	else {
-		if( strcmp(plate, root->plate) < 0 ) {
-			add(root->left, plate, first, last);
-		}
-		else if (strcmp(plate, root->plate) > 0) {
-			add(root->right, plate, first, last);
-		}
+	else if(strcmp(root->plate, plate) > 0) {
+		Node new = add(root->left, plate, first, last);
+		root -> left = new;
+	}
+	else if(strcmp(root->plate, plate) < 0) {
+		Node new = add(root->right, plate, first, last);
+		root -> right = new;
 	}
 	return(root);
 }
