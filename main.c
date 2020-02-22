@@ -11,7 +11,6 @@ int main() {
 	printf("%d\n",h);
 	char first[200];
 	char last[200];
-	int i = search(root, "zebra", first, last);
-	printf("%d\t%s\t%s", i, first, last);
+	int i = search(root, "logos", first, last);
 	
 }
