@@ -1,15 +1,14 @@
-#include "plate.h"
+#include "plate.h" 
 
 int main() {
 	Node root = NULL;
-	char file[200] = "testdata.txt";
-	getData(root, file);
-	printf("%s\n", root->left->first);
-	int h = height(root);
-	printf("%d\n",h);
-	char first[200];
-	char last[200];
-	int i = search(root, "R2D-3P0", first, last);
-	printf("%d\n", i);
-	
+	root = add(root, "R2D-3P0", "Travis", "Peterson");
+	root = add(root, "HELP-M3", "Jon", "Snow");
+	root = add(root, "DND-HLP", "Nott", "Brave");
+	root = add(root, "IDK-ANM", "Theresa", "Phan");
+	root = add(root, "DRK-DRV", "Bojack", "Horseman");
+	root = add(root, "FK-TRMP", "Bernie", "Sanders");
+	root = add(root, "NW-TRMP", "Mike", "Bloomberg");
+	root = add(root, "LOV-MNY", "Jeff", "Bezos");
+	root = add(root, "HRY-QTM", "Todd", "Chavez");
 }

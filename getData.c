@@ -46,7 +46,7 @@ int getData(Node root, char data[200]) {
 			i = 0;
 		}
 		if( ch != EOF) {
-			add(root, w1, w2, w3);
+			root = add(root, w1, w2, w3);
 			entries++;
 		}
 	}
