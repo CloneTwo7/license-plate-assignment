@@ -18,6 +18,13 @@ struct node {
 };
 
 //function prototypes
+int getData(Node root, char data[200]);
+	//takes in the root node and the file name
+	//opens file as read-only and filters the plate
+	//first, and last strings into their own variables, 
+	//then adds the units to the binary tree
+	//returns 1 if added successfully
+	//returns 0 if file was not openable
 int height(Node root);
 	//returns the height of the tree
 int balanced(Node root);
