@@ -4,7 +4,7 @@ Node delete(Node root, char *plate) {
 	//calls search to verify that the node being deleted exists
 	char* first, last;	
 	if(search(root, plate, first, last) == 0) {
-		return(0);
+		return(root);
 	}
 	Node prev = root;
 
