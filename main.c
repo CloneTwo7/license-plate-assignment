@@ -22,8 +22,6 @@ int main(int argc, char **argv) {
 	printf("Balanced: %d\n", balanced(root));
 	printf("---------LNR-------\n");
 	LNR(root);
-	printf("---------NLR-------\n");
-	NLR(root);
-	printf("---------LRN-------\n");
-	LRN(root);
+	root = delete(root, "LOV-MNY");
+	LNR(root);
 }

@@ -1,29 +1,57 @@
 #include "plate.h"
 
 Node delete(Node root, char *plate) {
-	//calls search to verify that the node being deleted exists
-	char* first, last;	
+/*	first thing this function does, is search the BST
+	to verify that it does exist
+*/
+	char* first;
+	char *last;	
 	if(search(root, plate, first, last) == 0) {
 		return(root);
 	}
-	
+/*	result variable holds a value that determines whether the current
+	node is the node being deleted, is greater value than the node being 
+	deleted, or is less value than the node being deleted
+*/
 	int result = strcmp(root->plate,plate);
-	
-	//checks to see if root is the node being deleted
+/*	if result == 0 then the result has been found.
+	The function then determines what the surrounding
+	tree looks like and determines how to delete the root
+	based off of the surrounding information.
+
+	Otherwise it will recursively call delete based off of the result.
+	result > 0 will traverse to the left
+	result < 0 will traverse to the right
+*/
 	if(result == 0) {
-		if(root->left != NULL) {
+/*	if both the right and left subtrees are not null,
+	the function will begin delteing here based off
+	several edge cases
+*/
+		if((root->left != NULL)&&(root->right != NULL)) {
+	/*	step 1 includes finding the largest node to the left of
+		the node being deleted
+	*/
+			Node prev = root;
 			Node largest = root->left;
-			while(root->right != NULL) {
+			while(root->right != NULL) { 
+			//loop to find largest node
+				prev = largest;
 				largest = largest->right;
 			}
+				largest -> right = root -> right;
+				if(prev != root) {
+					prev -> right = largest -> left;
+					largest -> left = root -> left;
+				}
+				free(root);
+				return(largest);
 		}
-
 	}
-	else if(result > 0) {
+	else if(result > 0) {//traverse to the left
 		root = delete(root->left, plate);
 	}
-	else {
+	else { //traverse to the right
 		root = delete(root->right, plate);
 	}
-
 }
