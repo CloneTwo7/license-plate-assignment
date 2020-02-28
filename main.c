@@ -11,7 +11,7 @@ int main(int argc, char **argv) {
 	printf("Balanced: %d\n", balanced(root));
 	printf("---------LNR-------\n");
 	LNR(root);
-	root = delete(root,"IDK-MAN");
+	root = delete(root,"NW-TRMP");
 	printf("--------====-------\n");
 	LNR(root);
 }

@@ -47,11 +47,21 @@ Node delete(Node root, char *plate) {
 				free(root);
 				return(largest);
 		}
+		else if(root->left == NULL && root->right != NULL) {
+			Node new = root->right;
+			free(root);
+			return(new);
+		}
+		else {
+			free(root);
+			root = NULL;
+			return(root);
+		}
 	}
 	else if(result > 0) {//traverse to the left
-		root = delete(root->left, plate);
+		root->left = delete(root->left, plate);
 	}
-	else { //traverse to the right
-		root = delete(root->right, plate);
+	else if(result < 0) { //traverse to the right
+		root->right = delete(root->right, plate);
 	}
 }
