@@ -2,11 +2,15 @@
 
 int main(int argc, char **argv) {
 	Node root = NULL;
-	root = add(root, "IDK-MAN", "Theresa", "Phan");
-	root = add(root, "DRK-DRV", "Bojack", "Horseman");
-	root = add(root, "FK-TRMP", "Bernie", "Sanders");
-	root = add(root, "NW-TRMP", "Mike", "Bloomberg");
-	root = add(root, "XAN-THR", "Rus", "Saranchuk");
+	//checks to see if there are the right amount of arguments
+	if(argc != 2) {
+		printf("Wrong number of arguments\n");
+		return(0);
+	}
+	char *database;
+	strcpy(database, argv[1]);
+	root = getData(root, database);
+
 	printf("height: %d\n", height(root));
 	printf("Balanced: %d\n", balanced(root));
 	printf("---------LNR-------\n");
