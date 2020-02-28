@@ -4,8 +4,8 @@ Node delete(Node root, char *plate) {
 /*	first thing this function does, is search the BST
 	to verify that it does exist
 */
-	char* first;
-	char *last;	
+	char first[200];
+	char last[200];
 	if(search(root, plate, first, last) == 0) {
 		return(root);
 	}

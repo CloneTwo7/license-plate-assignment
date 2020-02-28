@@ -38,13 +38,13 @@ int main(int argc, char **argv) {
 		//checks argc of user input
 		//if agrc == 2, then user wants to print a specific linkedList
 		if(0 == strcmp(command, "*DUMP")) {
-			printf("Height: %d", height(root));
+			printf("Height: %d\n", height(root));
 			int bal = balanced(root);
 			if(bal == 1) {
-				printf("Balanced: YES");
+				printf("Balanced: YES\n");
 			}
 			else {
-				printf("Balanced: NO");
+				printf("Balanced: NO\n");
 			}
 			printf("------LNR TRAVERSAL------\n");
 			LNR(root);
@@ -54,7 +54,7 @@ int main(int argc, char **argv) {
 			LRN(root);
 		}
 		else if((argc == 2) && (0 == strcmp(command, "*DELETE"))) {
-			if(search(root, plate, first, last)) {
+			if(search(root, plate, first, last)==1) {
 				printf("SUCCESS\n");
 			}			
 			else {
@@ -64,7 +64,7 @@ int main(int argc, char **argv) {
 		}
 		//anything else is assumed to be looking for a plate
 		else {
-			if(search(root, plate, first, last)) {
+			if(search(root, command, first, last)==1) {
 				printf("First Name: %s\n", first);
 				printf("Last Name: %s\n", last);
 			}
@@ -77,4 +77,6 @@ int main(int argc, char **argv) {
 	}
 	//prints new line for visual's sake
 	printf("\n");
+	printf("Freeing memory....\n");
+	treeFree(root);
 }
