@@ -44,6 +44,9 @@ Node delete(Node root, char *plate) {
 					prev -> right = largest -> left;
 					largest -> left = root -> left;
 				}
+				free(root->plate);
+				free(root->first);
+				free(root->last);
 				free(root);
 				return(largest);
 		}
