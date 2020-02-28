@@ -39,23 +39,29 @@ Node delete(Node root, char *plate) {
 				prev = largest;
 				largest = largest->right;
 			}
-				largest -> right = root -> right;
-				if(prev != root) {
-					prev -> right = largest -> left;
-					largest -> left = root -> left;
-				}
-				free(root->plate);
-				free(root->first);
-				free(root->last);
-				free(root);
-				return(largest);
+			largest -> right = root -> right;
+			if(prev != root) {
+				prev -> right = largest -> left;
+				largest -> left = root -> left;
+			}
+			free(root->plate);
+			free(root->first);
+			free(root->last);
+			free(root);
+			return(largest);
 		}
 		else if(root->left == NULL && root->right != NULL) {
 			Node new = root->right;
+			free(root->plate);
+			free(root->first);
+			free(root->last);
 			free(root);
 			return(new);
 		}
 		else {
+			free(root->plate);
+			free(root->first);
+			free(root->last);
 			free(root);
 			root = NULL;
 			return(root);
