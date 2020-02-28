@@ -34,7 +34,7 @@ Node delete(Node root, char *plate) {
 	*/
 			Node prev = root;
 			Node largest = root->left;
-			while(root->right != NULL) { 
+			while(largest->right != NULL) { 
 			//loop to find largest node
 				prev = largest;
 				largest = largest->right;

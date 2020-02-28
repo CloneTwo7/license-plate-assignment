@@ -10,6 +10,8 @@ int search(Node root, char *plate, char *first, char *last) {
 	//if current root's plate is equal to the plate passed to it,
 	//then it loads the first and last values with the values in this node
 	else if((strcmp(root->plate,plate)) == 0) {
+		first = malloc(strlen(root->first)+1);
+		last = malloc(strlen(root->last)+1);
 		strcpy(first,root->first);
 		strcpy(last,root->last);
 		return(1);
